@@ -1,28 +1,21 @@
-# Project Name
+# JalalSalehi
 
-A brief description of your project, what it does, and its purpose.
+A brief about This Repo.
 
-## Table of Contents
+## Table TEST
 
-- [Features](#features)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
-- [Contact](#contact)
-
+- [Features]
+- [Installation]
 ## Features
 
-- Feature 1: Brief description of feature 1.
-- Feature 2: Brief description of feature 2.
-- Feature 3: Brief description of feature 3.
+- Feature 1: file1 for test.
+- Feature 2: file2 for test.
 
 ## Installation
 
-Follow these steps to install the project:
+How install Repo:
 
 1. Clone the repository:
    ```bash
    git clone https://github.com/jsalehi90/cicd-students.git
    ```
-
