@@ -35,3 +35,13 @@ ram@NL:~/cicd-students/ramin-fatolazade$ git log -2 --oneline --graph
 * f6f841a (HEAD -> dev, origin/dev) A real-world Scenario!!
 * f4d971c Add GitBisect.MD
 ```
+
+My log:
+```bash
+ram@NL:~/cicd-students/ramin-fatolazade$ git log -3 --oneline --graph
+* c5e6203 (HEAD -> dev, origin/dev) A pre description of Scenario!!
+* f6f841a A real-world Scenario!!
+* f4d971c Add GitBisect.MD
+```
+
+Now, I’ll intentionally add a typo (misspelled word/syntax error and bug file) in the next commit to simulate a bug!
