@@ -26,3 +26,12 @@ Then git bisect picks a commit** between those two endpoints** and asks you whet
 
 
 ### Real-World Scenario!!
+In this section, I'm going to show how bisect works.
+
+I've already added a "Real-World Scenario!!" section in the GitBisect.MD file (Just title).
+Everything is OK so far. Also, I'll commit this added note in the next commit.
+```bash 
+ram@NL:~/cicd-students/ramin-fatolazade$ git log -2 --oneline --graph
+* f6f841a (HEAD -> dev, origin/dev) A real-world Scenario!!
+* f4d971c Add GitBisect.MD
+```
