@@ -56,3 +56,62 @@ ram@NL:~/cicd-students$ git log -4 --oneline --graph
 ```
 
 I'm going to change line 28 to "### Real-Word Senario!!" and add a bug file in the working directory (and some commits).
+```bash
+ram@NL:~/cicd-students/ramin-fatolazade$ git log -8 --oneline --graph
+* c4c5a95 (HEAD -> dev, origin/dev) A commit 2
+* 779ae51 A commit 1
+* c3e6f53 A ordinary commit with message
+* fb2c68d A simulate scenario desc
+* c5e6203 A pre description of Scenario!!
+* f6f841a A real-world Scenario!!
+* f4d971c Add GitBisect.MD
+* d01f9d0 M dir name
+```
+On commit "c4c5a95" we find out the bug and typo!
+lets use bisect to find and revert to good commit
+for start we should select commits and check between when everything was ok and bad
+```bash
+ram@NL:~/cicd-students/ramin-fatolazade$ git log -8 --oneline --graph
+* c4c5a95 (HEAD -> dev, origin/dev) A commit 2
+* 779ae51 A commit 1
+* c3e6f53 A ordinary commit with message
+* fb2c68d A simulate scenario desc
+* c5e6203 A pre description of Scenario!!
+* f6f841a A real-world Scenario!!
+* f4d971c Add GitBisect.MD
+* d01f9d0 M dir name
+ram@NL:~/cicd-students/ramin-fatolazade$ git bisect start
+status: waiting for both good and bad commits
+ram@NL:~/cicd-students/ramin-fatolazade$ git bisect bad
+status: waiting for good commit(s), bad commit known
+ram@NL:~/cicd-students/ramin-fatolazade$ git bisect good c5e6203
+Bisecting: 1 revision left to test after this (roughly 1 step)
+[c3e6f5306f7bf5ab512a05f40a4d71f4db51ffa0] A ordinary commit with message
+ram@NL:~/cicd-students/ramin-fatolazade$ git bisect good fb2c68d
+Bisecting: 0 revisions left to test after this (roughly 1 step)
+[779ae518aae2bd0edd0eff2d2ff808bd1750e8b1] A commit 1
+ram@NL:~/cicd-students/ramin-fatolazade$ git bisect bad c3e6f53
+c3e6f5306f7bf5ab512a05f40a4d71f4db51ffa0 is the first bad commit
+commit c3e6f5306f7bf5ab512a05f40a4d71f4db51ffa0
+Author: rfatolahzade <14954967+rfatolahzade@users.noreply.github.com>
+Date:   Fri Jul 25 10:37:41 2025 +0330
+
+    A ordinary commit with message
+
+ ramin-fatolazade/GitBisect.MD | 13 ++++++++++++-
+ ramin-fatolazade/bug          |  1 +
+ 2 files changed, 13 insertions(+), 1 deletion(-)
+ create mode 100644 ramin-fatolazade/bug
+
+ram@NL:~/cicd-students/ramin-fatolazade$ git show c3e6f5306f7bf5ab512a05f40a4d71f4db51ffa0
+commit c3e6f5306f7bf5ab512a05f40a4d71f4db51ffa0
+Author: rfatolahzade <14954967+rfatolahzade@users.noreply.github.com>
+Date:   Fri Jul 25 10:37:41 2025 +0330
+.....
+-### Real-World Scenario!!
++### Real-Word Senario!!
+....
++++ b/ramin-fatolazade/bug
+@@ -0,0 +1 @@
++𖢥
+```
