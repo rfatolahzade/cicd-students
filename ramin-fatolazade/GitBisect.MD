@@ -25,7 +25,7 @@ You use it by first telling it a "bad" commit that is known to contain the **bug
 Then git bisect picks a commit** between those two endpoints** and asks you whether the selected commit is "good" or "bad". It continues narrowing **down** the range until it **finds the exact commit that introduced the change**.
 
 
-### Real-World Scenario!!
+### Real-Word Senario!!
 In this section, I'm going to show how bisect works.
 
 I've already added a "Real-World Scenario!!" section in the GitBisect.MD file (Just title).
@@ -45,3 +45,14 @@ ram@NL:~/cicd-students/ramin-fatolazade$ git log -3 --oneline --graph
 ```
 
 Now, I’ll intentionally add a typo (misspelled word/syntax error and bug file) in the next commit to simulate a bug!
+
+Updated log:
+```bash
+ram@NL:~/cicd-students$ git log -4 --oneline --graph
+* fb2c68d (HEAD -> dev, origin/dev) A simulate scenario desc
+* c5e6203 A pre description of Scenario!!
+* f6f841a A real-world Scenario!!
+* f4d971c Add GitBisect.MD
+```
+
+I'm going to change line 28 to "### Real-Word Senario!!" and add a bug file in the working directory.
