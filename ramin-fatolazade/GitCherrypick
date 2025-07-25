@@ -1,0 +1,57 @@
+# cherrypick
+
+```bash
+ram@NL:~/cicd-students/ramin-fatolazade$ ls
+GitBisect.MD  README.md  bug
+ram@NL:~/cicd-students/ramin-fatolazade$ echo "# cherrypick " > GitCherrypick.md
+git add GitCherrypick.md
+git commit -m "Add cherrypick md file"
+
+ram@NL:~/cicd-students/ramin-fatolazade$ git checkout -b devops
+Switched to a new branch 'devops'
+
+ram@NL:~/cicd-students/ramin-fatolazade$ echo "Feature A" > feature-a.txt
+git add feature-a.txt
+git commit -m "Add Feature A"
+echo "Feature B" > feature-b.txt
+git add feature-b.txt
+git commit -m "Add Feature B"
+
+ram@NL:~/cicd-students/ramin-fatolazade$ ls
+GitBisect.MD  GitCherrypick.md  README.md  bug  feature-a.txt  feature-b.txt
+
+ram@NL:~/cicd-students/ramin-fatolazade$ git checkout dev
+Switched to branch 'dev'
+Your branch is ahead of 'origin/dev' by 1 commit.
+  (use "git push" to publish your local commits)
+
+ram@NL:~/cicd-students/ramin-fatolazade$ git log --oneline --graph --all -8
+* 426713d (devops) Add Feature B
+* 35858b6 Add Feature A
+* cfeabc4 (HEAD -> dev) Add cherrypick md file
+* c4c5a95 (origin/dev) A commit 2
+* 779ae51 A commit 1
+* c3e6f53 A ordinary commit with message
+* fb2c68d A simulate scenario desc
+* c5e6203 A pre description of Scenario!!
+
+ram@NL:~/cicd-students/ramin-fatolazade$ ls
+GitBisect.MD  GitCherrypick.md  README.md  bug
+ram@NL:~/cicd-students/ramin-fatolazade$ git cherry-pick 35858b6
+[dev b197f0c] Add Feature A
+ Date: Fri Jul 25 23:11:31 2025 +0330
+ 1 file changed, 1 insertion(+)
+ create mode 100644 ramin-fatolazade/feature-a.txt
+ram@NL:~/cicd-students/ramin-fatolazade$ ls
+GitBisect.MD  GitCherrypick.md  README.md  bug  feature-a.txt
+ram@NL:~/cicd-students/ramin-fatolazade$ git log --oneline --graph --all -8
+* b197f0c (HEAD -> dev) Add Feature A
+| * 426713d (devops) Add Feature B
+| * 35858b6 Add Feature A
+|/
+* cfeabc4 Add cherrypick md file
+* c4c5a95 (origin/dev) A commit 2
+* 779ae51 A commit 1
+* c3e6f53 A ordinary commit with message
+* fb2c68d A simulate scenario desc
+```
