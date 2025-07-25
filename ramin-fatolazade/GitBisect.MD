@@ -55,4 +55,4 @@ ram@NL:~/cicd-students$ git log -4 --oneline --graph
 * f4d971c Add GitBisect.MD
 ```
 
-I'm going to change line 28 to "### Real-Word Senario!!" and add a bug file in the working directory.
+I'm going to change line 28 to "### Real-Word Senario!!" and add a bug file in the working directory (and some commits)
