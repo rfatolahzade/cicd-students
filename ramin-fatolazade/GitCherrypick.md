@@ -1,7 +1,7 @@
 # cherrypick
 This guide demonstrates the use of git cherry-pick in a Git workflow. The goal is to show how specific commits can be selectively applied from one branch to another. This is especially useful when you want to bring in a single feature or fix without merging an entire branch.
 
-Step 1: Create the GitCherrypick.md File and Commit 
+#### Step 1: Create the GitCherrypick.md File and Commit 
 
 First, we create a documentation file to track this process and commit it to the repository. 
 ```bash
@@ -10,7 +10,7 @@ git add GitCherrypick.md
 git commit -m "Add cherrypick md file"
 ```
 
-Step 2: Create a New Branch Called devops
+#### Step 2: Create a New Branch Called devops
 We now create a new branch named devops to simulate a feature development environment.
 ```bash
 ram@NL:~/cicd-students/ramin-fatolazade$ git checkout -b devops
@@ -25,13 +25,13 @@ git add feature-b.txt
 git commit -m "Add Feature B"
 ```
 
-Step 3: Check WD After Commits
+#### Step 3: Check WD After Commits
 After adding both features(a/b), the WD contains the following files:
 ```bash
 ram@NL:~/cicd-students/ramin-fatolazade$ ls
 GitBisect.MD  GitCherrypick.md  README.md  bug  feature-a.txt  feature-b.txt
 ```
-Step 4: Switch to the dev Branch
+#### Step 4: Switch to the dev Branch
 We now checkout to the dev branch to selectively apply only one of the changes(feature a in my case).
 
 ```bash
@@ -40,7 +40,7 @@ Switched to branch 'dev'
 Your branch is ahead of 'origin/dev' by 1 commit.
   (use "git push" to publish your local commits)
 ```
-Step 5: View Commit History 
+#### Step 5: View Commit History 
 To identify which commit we want to cherry-pick, we inspect the commit history:
 
 ```bash
@@ -67,7 +67,7 @@ GitBisect.MD  GitCherrypick.md  README.md  bug
 ```
 Indeed, feature-a.txt and feature-b.txt are missing — they exist only on the devops branch.
 
-Step 7: Perform the Cherry-Pick 
+#### Step 6: Perform the Cherry-Pick 
 We now use git cherry-pick to apply only the "Add Feature A" commit (35858b6) to the current branch (dev): 
 
 ```bash
@@ -78,7 +78,7 @@ ram@NL:~/cicd-students/ramin-fatolazade$ git cherry-pick 35858b6
  create mode 100644 ramin-fatolazade/feature-a.txt
 ```
 
-Step 8: Verify the Result 
+#### Step 7: Verify the Result 
 Now check the WD again: 
 ```bash
 ram@NL:~/cicd-students/ramin-fatolazade$ ls
