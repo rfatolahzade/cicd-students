@@ -12,7 +12,7 @@ Project Structure:
 root@NL:/Projects/artifactguide# tree
 .
 ├── README.md
-├── requirements.txt     # Just contained numpy==1.26.0 package
+├── requirements.txt     # Just contained numpy==2.3.2 package
 └── scripts
     ├── analyze_data.py  # Data analysis script like mean,avg,max,min..
     ├── generate_data.py # Data generation script
